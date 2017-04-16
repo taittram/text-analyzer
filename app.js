@@ -34,6 +34,17 @@ function getUniqueWords(text) {
   return uniqueCount;
 }
 
+function getAverageWordLength(text) {
+  var words = getWords(text);
+  var wordTotal = 0;
+  for (var i = 0; i < words.length; i++) {
+    wordTotal += words[i].length;
+  }
+  var average = wordTotal / words.length;
+  average = parseFloat(Math.round(average * 100) / 100).toFixed(2);
+  return average;
+}
+
 $(function() {
   $('button').on('click', function() {
     $('dl').removeClass('hidden');
@@ -42,6 +53,7 @@ $(function() {
 
     $('.js-word-count').text(countWords(text));
     $('.js-unique-words').text(getUniqueWords(text));
+    $('.js-average-length').text(getAverageWordLength(text));
     
   });
 });
