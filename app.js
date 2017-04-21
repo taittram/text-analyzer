@@ -36,7 +36,6 @@ function getUniqueWords(text) {
       uniqueCount++;
     }
   }
-  console.log(uniqueWords);
   return uniqueCount;
 }
 
