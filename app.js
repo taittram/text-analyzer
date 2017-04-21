@@ -20,7 +20,7 @@ function getUniqueWords(text) {
   var uniqueWords = {};
   var uniqueCount = 0;
   for (var i = 0; i < words.length; i++) {
-    if (uniqueWords[words[i]] === 1) {
+    if (uniqueWords[words[i]] >= 1) {
       uniqueWords[words[i]] += 1;
     } else {
       uniqueWords[words[i]] = 1;
