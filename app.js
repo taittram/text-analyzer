@@ -2,8 +2,10 @@
 // use .val() to get text from textarea
 
 function getWords(text) {
-  text = text.replace(/[/\r?\n|\r/]/g, ' ');
-  return text.replace(/[^a-zA-Z ]/g, "").split(' ');
+  text = text.replace(/[/\r?\n|\r/]/g, ' ').split(' ');
+  return text.map(function(word) {
+    return word.toLowerCase();
+  });
 }
 
 function countWords(text) {
@@ -27,10 +29,14 @@ function getUniqueWords(text) {
     }
   }
   for (var key in uniqueWords) {
+    if (key === "") {
+      continue;
+    }
     if (uniqueWords[key] === 1) {
       uniqueCount++;
     }
   }
+  console.log(uniqueWords);
   return uniqueCount;
 }
 
